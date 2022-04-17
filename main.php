@@ -19,15 +19,24 @@ $animals = [
 $farm = new Farm();
 
 try {
-         foreach ($animals as $animal => $quantity){
-        $className = '\\App\\animals\\' .ucfirst($animal);
+    addNewAnimals2($animals, $farm);
+    // можно прямо тут без функции можно обработат и добавит
+    //     foreach ($animals as $animal => $quantity){
+    //
+    //
+    //        if ($animal[0]){
+    //            for($i =1; $i <= $quantity; $i++){
+    //                $farm->addAnimal(new Cow(uniqid($animal)));
+    //            }
+    //        }
+    //        for($i =1; $i <= $quantity; $i++){
+    //            $farm->addAnimal(new Chicken(uniqid($animal)));
+    //        }
+    //
+    //
+    //    }
 
-        for($i = 1; $i <= $quantity; $i++){
-            $farm->addAnimal(new $className(uniqid($animal)));
-        }
-
-    }
-}catch (Throwable $err){
+} catch (Throwable $err){
     echo $err->getMessage();
     return;
 }
@@ -58,14 +67,9 @@ $newAnimals = [
     Chicken::ANIMALS_TYPE => 5
 ];
 //
-foreach ($newAnimals as $animal => $quantity) {
-    $className = '\\App\\animals\\' . ucfirst($animal);
+addNewAnimals2($newAnimals, $farm);
 
-    for ($i = 1; $i <= $quantity; $i++) {
-        $farm->addAnimal(new $className(uniqid($animal)));
-    }
-}
-    showAnimalList($farm->getAnimalTypeCount());
+showAnimalList($farm->getAnimalTypeCount());
 
     echo "\n";
 

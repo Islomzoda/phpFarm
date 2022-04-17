@@ -1,8 +1,10 @@
 <?php
 
 use App\Farm;
+use App\animals\Chicken;
+use App\animals\Cow;
 
-// метод добавляет новых животных
+// первый метод добавляет новых животных
 // function addNewAnimals(array $newAnimals, Farm $farm): void
 // {
 //     foreach ($newAnimals as $animal => $quantity) {
@@ -14,6 +16,47 @@ use App\Farm;
 //     }
 // }
 
+// второй метод добавление животных
+function addNewAnimals2(array $newAnimals, Farm $farm): void
+{
+    foreach ($newAnimals as $animal => $quantity){
+
+
+        if ($animal[0]){
+            for($i =1; $i <= $quantity; $i++){
+                $farm->addAnimal(new Cow(uniqid($animal)));
+            }
+        }
+        for($i =1; $i <= $quantity; $i++){
+            $farm->addAnimal(new Chicken(uniqid($animal)));
+        }
+
+
+    }
+}
+
+// третий метод добавление животных пока в режиме дороботки
+//function addNewAnimals3(array $newAnimals, Farm $farm): void
+//{
+//    foreach ($newAnimals as $animal => $quantity){
+//
+//        switch ($animal) {
+//            case ($animal[0]):
+//                for ($i = 1; $i <= $quantity; $i++){
+//                $farm->addAnimal(new Cow(uniqid($animal)));
+//            };
+//                break;
+//            case ($animal[1]):
+//                for ($i = 1; $i <= $quantity; $i++){
+//                    $farm->addAnimal(new Chicken(uniqid($animal)));
+//                };
+//                break;
+//        }
+//
+//
+//
+//    }
+//}
 
 
 
