@@ -1,8 +1,8 @@
 <?php
 
-namespace classes\animals;
+namespace App\animals;
 
-//класс крицы
+//класс курицы
 
 class Chicken extends Animal {
 
@@ -33,7 +33,7 @@ class Chicken extends Animal {
      * Метод возврашает случайное количество литров коровя молока в заданном диапазоне MIN, MAX
      * @throws \Exception
      */
-    public function getProduct()
+    public function getProduct(): int
     {
         return random_int(self::MIN_AGES_AMOUNT, self::MAX_AGES_AMOUNT);
     }

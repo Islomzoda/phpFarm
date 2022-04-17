@@ -1,18 +1,18 @@
 <?php
 
-namespace classes\interfaces;
+namespace App\interfaces;
 
 interface AnimalInterface {
 
     // метод получени id
-    public function getId();
+    public function getId(): int;
 
     //  метод получение типа животного
-    public function getAnimalType();
+    public function getAnimalType(): string;
 
     // метод получение типа продукта
-    public function getProductType();
+    public function getProductType(): string;
 
     // метод получение продукта
-    public function getProduct();
+    public function getProduct(): int;
 }

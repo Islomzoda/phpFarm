@@ -1,6 +1,6 @@
 <?php
 
-namespace classes\animals;
+namespace App\animals;
 
 // класс коровы
 
@@ -33,7 +33,7 @@ class Cow extends Animal {
      *  Метод возврашает случайное количество литров коровя молока в заданном диапазоне MIN, MAX
      * @throws \Exception
      */
-    public function getProduct()
+    public function getProduct(): int
     {
         return random_int(self::MIN_MILK_LITERS, self::MAX_MILK_LITERS);
     }

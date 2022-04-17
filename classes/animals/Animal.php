@@ -1,7 +1,7 @@
 <?php
-namespace classes\animals;
+namespace App\animals;
 
-use classes\interfaces\AnimalInterface;
+use App\interfaces\AnimalInterface;
 
 //родителский класс животных
 abstract class Animal implements AnimalInterface {
@@ -11,14 +11,15 @@ abstract class Animal implements AnimalInterface {
 
     // метод присваевает уникалный id животному
 
-public function __construct($id){
+public function __construct($id)
+{
 
         $this->id == $id;
 }
 
  // метод возврашает id
 
-    public function getId()
+    public function getId(): int
     {
      return $this->id;
     }

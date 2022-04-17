@@ -1,11 +1,15 @@
 <?php
 
 require_once('./services/autoload.php');
-use classes\animals\Cow;
-use classes\animals\Chicken;
-use classes\Farm;
+require_once('./services/main.php');
+
+use App\animals\Cow;
+use App\animals\Chicken;
+use App\Farm;
+
 
 // создаем массив с количеством животных на ферме
+
 
 $animals = [
     Cow::ANIMALS_TYPE => 10,
@@ -46,7 +50,7 @@ $newAnimals = [
     Cow::ANIMALS_TYPE => 1,
     Chicken::ANIMALS_TYPE => 5
 ];
-
+//
 addNewAnimals($newAnimals, $farm);
 
 showAnimalList($farm->getAnimalTypeCount());

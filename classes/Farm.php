@@ -1,8 +1,8 @@
 <?php
 
-namespace classes;
+namespace App;
 
-use classes\interfaces\AnimalInterface;
+use App\interfaces\AnimalInterface;
 
 
 class Farm {
@@ -12,7 +12,7 @@ class Farm {
     private $products;
 
     /**
-     * Перебирает массив с объектами животных и возвращает массив с типом и кол-вом жиотных.
+     * Перебирает массив с объектами животных и возвращает массив с типом и кол-вом животных.
      * @return array
      */
 
@@ -24,7 +24,7 @@ class Farm {
         foreach ($this->animals as $animal){
             // если массив пустой или не содержит в себе типа животного в виде ключа, то добавить такой ключ.
             if (empty($animalsTypeAndQuantity) || (!array_key_exists($animal->getAnimalType(), $animalsTypeAndQuantity))){
-                $animalsTypeAndQuantity[$animal->getAnimalType()] = null;
+                $animalsTypeAndQuantity[$animal->getAnimalType()] = 0;
             }
 
             // если тип итерируемого животного в виде ключа уже существует, то просто посчитать его
@@ -35,7 +35,8 @@ class Farm {
     }
 
 
-    public function collectProduct(){
+    public function collectProduct(): void
+    {
 
         /** @var AnimalInterface $animal */
         foreach ($this->animals as $animal){
@@ -44,7 +45,7 @@ class Farm {
             if (empty($this->products) || (!array_key_exists($animal->getProductType(), $this->products)))
             {
 
-                $this->products[$animal->getProductType()] = null;
+                $this->products[$animal->getProductType()] = 0;
             }
 
             // если тип итерируемого продукта в виде ключа уже существует, то просто посчитать его
@@ -53,7 +54,8 @@ class Farm {
         }
     }
 
-    public function getProducts(){
+    public function getProducts(): array
+    {
         return $this->products;
     }
 
@@ -62,7 +64,8 @@ class Farm {
         return $this->products = [];
     }
 
-    public function addAnimal(AnimalInterface $animal){
-    $this->animals[] = $animal;
+    public function addAnimal(AnimalInterface $animal): void
+    {
+                $this->animals[] = $animal;
     }
 }
