@@ -3,18 +3,16 @@
 use App\Farm;
 
 // метод добавляет новых животных
- function addNewAnimals(array $newAnimals, Farm $farm): void
- {
-    foreach ($newAnimals as $animal => $quantity){
-        $className = '\\App\\animals\\' .ucfirst($animal);
-
-        for($i = 1; $i <= $quantity; $i++){
-    $farm->addAnimal(new $className(uniqid($animal)));
-        }
-
-    }
-}
-
+// function addNewAnimals(array $newAnimals, Farm $farm): void
+// {
+//     foreach ($newAnimals as $animal => $quantity) {
+//         $className = '\\App\\animals\\' . ucfirst($animal);
+//
+//         for ($i = 1; $i <= $quantity; $i++) {
+//             $farm->addAnimal(new $className(uniqid($animal)));
+//         }
+//     }
+// }
 
 
 

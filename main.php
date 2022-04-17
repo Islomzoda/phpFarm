@@ -19,7 +19,14 @@ $animals = [
 $farm = new Farm();
 
 try {
-    addNewAnimals($animals, $farm);
+         foreach ($animals as $animal => $quantity){
+        $className = '\\App\\animals\\' .ucfirst($animal);
+
+        for($i = 1; $i <= $quantity; $i++){
+            $farm->addAnimal(new $className(uniqid($animal)));
+        }
+
+    }
 }catch (Throwable $err){
     echo $err->getMessage();
     return;
@@ -51,14 +58,20 @@ $newAnimals = [
     Chicken::ANIMALS_TYPE => 5
 ];
 //
-addNewAnimals($newAnimals, $farm);
+foreach ($newAnimals as $animal => $quantity) {
+    $className = '\\App\\animals\\' . ucfirst($animal);
 
-showAnimalList($farm->getAnimalTypeCount());
+    for ($i = 1; $i <= $quantity; $i++) {
+        $farm->addAnimal(new $className(uniqid($animal)));
+    }
+}
+    showAnimalList($farm->getAnimalTypeCount());
 
-echo "\n";
+    echo "\n";
 
 // Еженедельный сбор продуктов включая новых животных
-getWeeklyProductCollection($farm);
+    getWeeklyProductCollection($farm);
 
 //Выводим общее кол-во собранных за неделю шт. яиц и литров молока.
-showWeeklyProductList($farm->getProducts());
+    showWeeklyProductList($farm->getProducts());
+
